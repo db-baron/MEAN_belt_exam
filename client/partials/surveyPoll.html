@@ -1,0 +1,21 @@
+<div ng-init="pollsController.show()">
+    <a href="#/main">Back To Main Survey Page</a>
+    <a href="/logout" ng-click=pollsController.logout()> Log Out </a>
+
+    <h2>Here's the Question</h2>
+    <h2 ngbind="pollsController.$scope.question"></h2>
+
+    <h4>Click on the vote button to vote:</h4>
+    <table border="1">
+        <thead>
+            <td>Option</td>
+            <td>Current Vote Count</td>
+            <td>Action</td>
+        </thead>
+        <tr ng-repeat="i in pollsController.poll.options">
+            <td>{{i.name}}</td>
+            <td>{{i.votes}}</td>
+            <td><button ng-click=pollsController.vote($index)>Vote</button></td>
+        </tr>
+    </table>
+</div>

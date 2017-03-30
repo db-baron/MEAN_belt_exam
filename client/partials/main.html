@@ -1,0 +1,23 @@
+<div ng-controller='pollsController'>
+  <a href="#/new_poll">Create a New Poll</a>
+  <a href="#/logout" ng-click="pollsController.logout()">Logout</a>
+  <h2 ng-model = "my_filter" >Current Polls:</h2>
+
+  <table border="1">
+     <thead>
+        <td>Name</td>
+        <td>Survey Poll</td>
+        <td>Date Posted</td>
+        <td>Actions</td>
+     </thead>
+     <tr ng-repeat="poll in pollsController.polls | filter: my_filter">
+        <td ng-bind="poll.name"></td>
+        <td ng-bind="poll.poll"></td>
+        <td ng-bind="poll.date"></td>
+        <!--When this button is clicked, run the removePoll function-->
+        <td><button ng-click="removePoll($index)">Delete</button></td>
+     </tr>
+  </table>
+
+
+</div>
